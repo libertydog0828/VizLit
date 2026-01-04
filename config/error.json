@@ -1,0 +1,9 @@
+{
+    "error_code":
+    {
+        "NoError" : "Data is loaded!!",
+        "NotExist" : "Not exist selected data",
+        "IsDirectory" : "you selected Directory, Please check path.",
+        "NotSupport" : "This file is not supported. Supported file is 'h5' or 'csv'"
+    }
+}
