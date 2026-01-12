@@ -49,7 +49,6 @@ class ReadData:
     def __readCsv(self, path:Path):
         self.__csv = pd.read_csv(path)
 
-
     @property
     def h5(self):
         return self.__h5
@@ -65,3 +64,7 @@ class ReadData:
     @property
     def data(self):
         return self.__data
+    
+    @property
+    def format(self):
+        return self.__format
