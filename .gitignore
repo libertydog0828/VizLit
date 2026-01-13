@@ -3,3 +3,6 @@ __pycache__
 *.ipynb
 *.command
 *.DS_Store
+Vizlit/core/base.py
+Vizlit/core/matplot_backend.py
+Vizlit/core/seaborn_backend.py
