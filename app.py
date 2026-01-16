@@ -74,14 +74,15 @@ if st.session_state["loaded"] == True:
         draw_mode = st.sidebar.radio("Marker", ["line", "dot", "line+dot"])
         view_ratio = st.sidebar.radio("Ratio", ["Square", "Rectangle"])
         show_raw = st.sidebar.toggle("Picked Data", value = False)
-        row_min, row_max = st.sidebar.slider(
+        val_min, val_max = st.sidebar.slider(
             "View Range",
-            min_value = 0,
-            max_value = len(picked_data) - 1,
-            value = (0, len(picked_data) - 1)
+            min_value = picked_data.loc[:, st.session_state["x_axis_col"]].min(),
+            max_value = picked_data.loc[:, st.session_state["x_axis_col"]].max(),
+            value = (picked_data.loc[:, st.session_state["x_axis_col"]].min(), picked_data.loc[:, st.session_state["x_axis_col"]].max())
         )
 
-        plot_data = picked_data.iloc[row_min:row_max + 1]
+        plot_data = picked_data[(picked_data[st.session_state["x_axis_col"]]>=val_min) & 
+                                (picked_data[st.session_state["x_axis_col"]]<=val_max)]
 
         if show_raw:
             st.subheader("Extracted Data")
